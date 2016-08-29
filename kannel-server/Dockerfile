@@ -1,4 +1,4 @@
-FROM centos:centos7
+FROM juneym/centos-systemd:7
 MAINTAINER R Martinez <juney.m@gmail.com>
 
 RUN yum -y install epel-release && yum clean all
