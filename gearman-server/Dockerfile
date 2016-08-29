@@ -1,5 +1,5 @@
 FROM centos:centos7
-MAINTAINER R Martinez <juney.m@gmail.com>
+MAINTAINER R Martinez <juney.m+docker@gmail.com>
 
 RUN yum -y update && yum clean all && yum -y install epel-release && yum clean all
 RUN yum -y install gearmand &&  mkdir -p /var/log/gearmand

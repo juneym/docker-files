@@ -3,7 +3,7 @@
 # Reference: https://hub.docker.com/_/centos/
 #################################
 FROM centos:7
-MAINTAINER "Raul M" <juneym+docker@gmail.com> 
+MAINTAINER "Raul M" <juney.m+docker@gmail.com> 
 ENV container docker
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done); \
 rm -f /lib/systemd/system/multi-user.target.wants/*;\
