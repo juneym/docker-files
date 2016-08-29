@@ -1,21 +1,24 @@
 FROM centos:7
-MAINTAINER R Martinez <juney.m@gmail.com>
+MAINTAINER R Martinez <juney.m+docker@gmail.com>
 
-RUN yum -y install epel-release && yum clean all
-RUN yum -y install gcc make libxml2-devel mariadb-devel bison byacc openssl-devel supervisor
+RUN yum -y install epel-release && yum clean all && yum -y install gcc make libxml2-devel mariadb-devel bison byacc openssl-devel supervisor
 ADD http://kannel.org/download/1.4.4/gateway-1.4.4.tar.gz /root/
-RUN cd /root/ && tar -xvzf gateway-1.4.4.tar.gz
-WORKDIR /root/gateway-1.4.4
-RUN ./configure --prefix=/usr/local/kannel --sysconfdir=/etc/kannel --with-mysql --with-mysql-dir=/usr/include/mysql --disable-wap && \
+RUN cd /root/ && tar -xvzf gateway-1.4.4.tar.gz && \
+    cd /root/gateway-1.4.4 && \
+    ./configure --prefix=/usr/local/kannel --sysconfdir=/etc/kannel --with-mysql --with-mysql-dir=/usr/include/mysql --disable-wap && \
     make && \
-    make install
-RUN rm /root/gateway-1.4.4.tar.gz
-RUN rm -rf /root/gateway-1.4.4
-RUN mkdir -p /var/log/kannel && mkdir -p /var/run/kannel  && mkdir -p /var/spool/kannel 
+    make install && \
+    rm /root/gateway-1.4.4.tar.gz && \
+    rm -rf /root/gateway-1.4.4 && \
+    mkdir -p /var/log/kannel && \
+    mkdir -p /var/run/kannel && \
+    mkdir -p /var/spool/kannel && \
+    yum -y remove  gcc make libxml2-devel mariadb-devel  bison byacc openssl-devel && \
+    yum clean all
+
 ADD build-defaults/etc/kannel /etc/kannel
 ADD build-defaults/etc/supervisor/supervisord.conf  /etc
 ADD build-defaults/etc/supervisor/supervisord.d  /etc/supervisord.d
-ADD build-defaults/etc/service/kannel /etc/service/kannel
 
 VOLUME ["/var/log/kannel/", "/etc/kannel/", "/var/spool/kannel", "/var/log/supervisor/"]
 
