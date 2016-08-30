@@ -6,5 +6,5 @@ Building the Docker Image
 ===========================
 
    `
-    docker build -t juneym/centos-http-php .
+    docker build -t juneym/tnxsol-httpd-php .
    `
