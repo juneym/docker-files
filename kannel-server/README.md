@@ -12,7 +12,7 @@ Running an Instance
 ===================
 
    `
-    docker run --rm -t juneym/kannel-server -name kannel-server
+    docker run --rm --name kannel-server -t juneym/kannel-server
    `
    
 Running An Instance with mounted /var/log/kannel

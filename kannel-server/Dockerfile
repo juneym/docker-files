@@ -9,7 +9,6 @@ RUN cd /root/ && tar -xvzf gateway-1.4.4.tar.gz && \
     make && \
     make install && \
     make install-test && \
-    make install-checks && \
     make install-contrib && \
     rm /root/gateway-1.4.4.tar.gz && \
     rm -rf /root/gateway-1.4.4 && \
@@ -18,6 +17,8 @@ RUN cd /root/ && tar -xvzf gateway-1.4.4.tar.gz && \
     mkdir -p /var/spool/kannel && \
     yum -y remove  gcc make libxml2-devel mariadb-devel  bison byacc openssl-devel && \
     yum clean all
+
+ENV PATH="/usr/local/kannel/bin:/usr/local/kannel/sbin:/usr/local/kannel/lib/kannel/test:${PATH}"
 
 ADD build-defaults/etc/kannel /etc/kannel
 ADD build-defaults/etc/supervisor/supervisord.conf  /etc
