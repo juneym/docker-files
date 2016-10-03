@@ -8,6 +8,9 @@ RUN cd /root/ && tar -xvzf gateway-1.4.4.tar.gz && \
     ./configure --prefix=/usr/local/kannel --sysconfdir=/etc/kannel --with-mysql --with-mysql-dir=/usr/include/mysql --disable-wap && \
     make && \
     make install && \
+    make install-test && \
+    make install-checks && \
+    make install-contrib && \
     rm /root/gateway-1.4.4.tar.gz && \
     rm -rf /root/gateway-1.4.4 && \
     mkdir -p /var/log/kannel && \
