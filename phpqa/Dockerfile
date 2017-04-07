@@ -5,4 +5,4 @@ RUN composer global require 'edgedesign/phpqa' --update-no-dev "symfony/console:
 
 ENTRYPOINT ["phpqa"]
 CMD ["--help"]
-1
+

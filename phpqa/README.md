@@ -1,5 +1,13 @@
 Based from 
+=============
 
-https://github.com/eko3alpha/docker-phpqa/blob/master/Dockerfile
-https://github.com/EdgedesignCZ/phpqa
+   https://github.com/eko3alpha/docker-phpqa/blob/master/Dockerfile
+   https://github.com/EdgedesignCZ/phpqa
+
+
+How to build
+=============
+
+
+
 
