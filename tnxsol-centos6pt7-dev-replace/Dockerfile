@@ -35,7 +35,16 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 
 ADD etc/sysconfig/selinux /etc/sysconfig/selinux
 
+RUN yum install -y redis mysql mysql-server 
+RUN yum install -y supervisor && mkdir -p /var/log/supervisor
 
-VOLUME ["/var/www", "/var/log/httpd"]
+ADD etc/supervisord.conf /etc/supervisord.conf
+ADD start.sh /usr/sbin/start.sh
+RUN chmod 755 /usr/sbin/start.sh
+
+VOLUME ["/var/www", "/var/log/httpd", "/var/lib/mysql", "/var/log/mysql", "/var/log/supervisor"]
+
 EXPOSE 80 3306
-CMD ["httpd", "-D", "FOREGROUND"]
+
+#CMD ["httpd", "-D", "FOREGROUND"]
+CMD ["/usr/sbin/start.sh"]
