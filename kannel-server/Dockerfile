@@ -3,14 +3,13 @@ MAINTAINER R Martinez <juney.m+docker@gmail.com>
 
 RUN yum -y install epel-release && yum clean all && yum -y install gcc make libxml2-devel mariadb-devel bison byacc openssl-devel supervisor
 ADD http://kannel.org/download/1.4.4/gateway-1.4.4.tar.gz /root/
-RUN cd /root/ && tar -xvzf gateway-1.4.4.tar.gz && \
-    cd /root/gateway-1.4.4 && \
+
+RUN cd /root/gateway-1.4.4 && \
     ./configure --prefix=/usr/local/kannel --sysconfdir=/etc/kannel --with-mysql --with-mysql-dir=/usr/include/mysql --disable-wap && \
     make && \
     make install && \
     make install-test && \
     make install-contrib && \
-    rm /root/gateway-1.4.4.tar.gz && \
     rm -rf /root/gateway-1.4.4 && \
     mkdir -p /var/log/kannel && \
     mkdir -p /var/run/kannel && \
