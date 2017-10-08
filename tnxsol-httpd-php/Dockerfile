@@ -12,7 +12,10 @@ RUN yum -y install epel-release && yum clean all &&  \
            php56w-soap php56w-xml && \
     yum -y install httpd && \
     sed -i 's/\/var\/www\/html/\/var\/www\/src\/web\//g' /etc/httpd/conf/httpd.conf && \
-    mkdir -p /var/www/src/web/
+    mkdir -p /var/www/src/web/ && \
+    yum -y install php56w-pecl-xdebug && \
+    yum -y install git && \
+    yum -y install openconnect which net-tools iproute
 
 VOLUME ["/var/www", "/var/log/httpd"]
 
