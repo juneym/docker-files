@@ -1,4 +1,4 @@
-FROM repo.tnx.solutions:6000/juneym/tnxsol-httpd-php:php70w-v3
+FROM repo.tnx.solutions:6000/juneym/tnxsol-httpd-php:php70w-v4
 MAINTAINER R Martinez <juney.m+docker@gmail.com>
 
 RUN yum -y install php70w-pecl-xdebug && \
@@ -9,7 +9,7 @@ RUN yum -y install php70w-pecl-xdebug && \
     ln -s /usr/local/bin/composer.phar /usr/local/bin/composer
 
 
-VOLUME ["/web", "/var/log/httpd"]
+VOLUME ["/app", "/var/log/httpd"]
 
 EXPOSE 80
 

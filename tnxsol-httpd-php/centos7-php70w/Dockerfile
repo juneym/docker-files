@@ -11,13 +11,13 @@ RUN yum -y install epel-release && yum clean all &&  \
            php70w-pear php70w-pecl-gearman php70w-pecl-memcache php70w-pgsql php70w-process \ 
            php70w-soap php70w-xml && \
     yum -y install httpd && \
-    sed -i 's/\/var\/www\/html/\/web\/app\/public\//g' /etc/httpd/conf/httpd.conf && \
-    mkdir -p /web/app/public/
+    sed -i 's/\/var\/www\/html/\/app\/public\//g' /etc/httpd/conf/httpd.conf && \
+    mkdir -p /app/public/
 
-VOLUME ["/web", "/var/log/httpd"]
+VOLUME ["/app", "/var/log/httpd"]
 
 EXPOSE 80
 
-WORKDIR /web
+WORKDIR /app
 
 CMD ["httpd", "-D", "FOREGROUND"]
