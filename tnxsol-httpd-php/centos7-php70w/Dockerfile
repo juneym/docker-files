@@ -1,8 +1,7 @@
 FROM centos:7.4.1708
 MAINTAINER R Martinez <juney.m+docker@gmail.com>
 
-RUN yum -y install epel-release && yum clean all &&  \
-    rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
+RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
     rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm && \
     yum -y install yum-plugin-replace && \
     yum -y install php70w php70w-opcache php70w-cli && \
