@@ -1,0 +1,14 @@
+version: '3'
+services:
+  webapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /data
+    image: "repo.tnx.solutions:6000/tnxsol/mermaid:latest"
+    ports:
+      - "8099:80"
+    volumes:
+      - ./data:/data
+    privileged: true
+
