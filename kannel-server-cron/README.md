@@ -8,6 +8,7 @@ Building The Docker Image
      docker build -t juneym/kannel-server-cron  .
 
      docker build -t repo.tnx.solutions:6000/juneym/kannel-server-cron .
+     docker build -t repo.tnx.solutions:6000/juneym/kannel-server-cron:v1 .
    `
 
 Running an Instance
