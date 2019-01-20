@@ -7,7 +7,7 @@ ADD build-defaults/etc/supervisor/supervisord.conf  /etc
 ADD build-defaults/etc/supervisor/supervisord.d  /etc/supervisord.d
 ADD build-defaults/etc/cron.d/kannel.cron /etc/cron.d/kannel.cron
 
-RUN yum install -y cronie
+RUN yum install -y cronie logrotate
 
 VOLUME ["/var/log/kannel/", "/etc/kannel/", "/var/spool/kannel", "/var/log/supervisor/"]
 EXPOSE 13000 13013
