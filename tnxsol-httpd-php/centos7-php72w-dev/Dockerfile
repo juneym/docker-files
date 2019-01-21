@@ -1,4 +1,4 @@
-FROM repo.tnx.solutions:6000/juneym/tnxsol-httpd-php:php72w-v1
+FROM repo.tnx.solutions:6000/juneym/tnxsol-httpd-php:php72w-V1
 MAINTAINER R Martinez <juney.m+docker@gmail.com>
 
 RUN yum -y install php72w-pecl-xdebug && \
