@@ -1,4 +1,4 @@
-FROM centos:7
+FROM centos:7.4.1708
 MAINTAINER R Martinez <juney.m+docker@gmail.com>
 
 #RUN yum -y install epel-release && yum clean all &&  \
