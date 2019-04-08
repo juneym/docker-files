@@ -1,8 +1,8 @@
 FROM centos:7
 MAINTAINER R Martinez <juney.m+docker@gmail.com>
 
-RUN yum -y install epel-release && yum clean all &&  \
-    rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
+#RUN yum -y install epel-release && yum clean all &&  \
+RUN    rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
     rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm && \
     yum -y install yum-plugin-replace && \
     yum -y install php56w php56w-opcache php56w-cli && \
