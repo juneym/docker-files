@@ -7,6 +7,6 @@ Building the Docker Image
 
    `
     docker build -t repo.tnx.solutions:6000/juneym/tnxsol-httpd-php:php72w-dev-LATEST .
-    docker build -t repo.tnx.solutions:6000/juneym/tnxsol-httpd-php:php72w-dev-V2 .
+    docker build -t repo.tnx.solutions:6000/juneym/tnxsol-httpd-php:php72w-dev-V3 .
    `
 
